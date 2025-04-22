@@ -47,21 +47,21 @@ import { getSystemTheme, getStoredTheme, resolveTheme } from '@/utils/theme-util
 //   }
 
   // theme changed listener
-//   window.addEventListener('storage', (event) => {
-//     if (event.key === 'theme') {
-//       const newTheme = event.newValue === 'auto'
-//         ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-//         : event.newValue;
-//       const iframe = document.querySelector('iframe.giscus-frame');
-//       iframe?.contentWindow?.postMessage({
-//         giscus: {
-//           setConfig: {
-//             theme: newTheme
-//           }
-//         }
-//       }, 'https://giscus.app');
-//     }
-//   });
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'theme') {
+      const newTheme = event.newValue === 'auto'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : event.newValue;
+      const iframe = document.querySelector('iframe.giscus-frame');
+      iframe?.contentWindow?.postMessage({
+        giscus: {
+          setConfig: {
+            theme: newTheme
+          }
+        }
+      }, 'https://giscus.app');
+    }
+  });
 </script>
 <!-- <script src="https://giscus.app/client.js"
         data-repo="hibikeyuri/hibikeyuri.github.io"
